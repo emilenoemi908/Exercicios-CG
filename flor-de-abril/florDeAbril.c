@@ -9,15 +9,12 @@ void init(){
 void display(){
     glClear(GL_COLOR_BUFFER_BIT);
 
-    // Haste amarela
     glColor3f(1.0, 1.0, 0.0); 
     glBegin(GL_LINES);
         glVertex2i(250, 100);
         glVertex2i(250, 230);
     glEnd();
 
-    // Pás do catavento
-    // Vermelha (direita)
     glColor3f(1.0, 0.0, 0.0);
     glBegin(GL_TRIANGLES);
         glVertex2i(250, 250);
@@ -25,7 +22,6 @@ void display(){
         glVertex2i(290, 270);
     glEnd();
 
-    // Verde (topo)
     glColor3f(0.0, 1.0, 0.0);
     glBegin(GL_TRIANGLES);
         glVertex2i(250, 250);
@@ -33,7 +29,6 @@ void display(){
         glVertex2i(270, 290);
     glEnd();
 
-    // Azul (esquerda)
     glColor3f(0.0, 0.0, 1.0);
     glBegin(GL_TRIANGLES);
         glVertex2i(250, 250);
@@ -41,7 +36,6 @@ void display(){
         glVertex2i(210, 270);
     glEnd();
 
-    // Branca (base)
     glColor3f(1.0, 1.0, 1.0);
     glBegin(GL_TRIANGLES);
         glVertex2i(250, 250);
