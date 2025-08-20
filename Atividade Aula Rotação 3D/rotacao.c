@@ -6,8 +6,8 @@ float angle = 0.0f;
 float lua = 0.0f;
 float d1 = 3.0f;
 float d2 = 6.0f;
-float dZ= 8.0f; 
-int movimento=0;
+float dZ= 18.0f; 
+
 
 void init(){
     glClearColor(0.0, 0.0, 0.0, 0.0);
@@ -44,9 +44,9 @@ void display(){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
       
     glLoadIdentity();
-    gluLookAt(0.0, 0.0, dZ,  // posição da câmera
-              0.0, 0.0, 0.0,  // olha para o centro
-              0.0, 1.0, 0.0); // vetor "up"
+    gluLookAt(0.0, 0.0, dZ,  
+              0.0, 0.0, 0.0,
+              0.0, 1.0, 0.0); 
 
     
     GLfloat light_pos[] = {1.0f, 1.0f, 1.0f, 0.0f};
@@ -94,10 +94,10 @@ void display(){
     glutSwapBuffers(); 
 }
 
-void timer(int v){
 
-    if(movimento){
+void keyboard(unsigned char key, int x, int y) {
 
+    if (key == 'y' || key == 'y') {
         angle += 3.0f;
         if(angle > 360) angle -= 360;
 
@@ -107,18 +107,6 @@ void timer(int v){
         glutPostRedisplay();
     }
 
-    glutTimerFunc(16, timer, 0); 
-}
-
-void keyboard(unsigned char key, int x, int y) {
-
-    if (key == 's' || key == 'S') {
-        movimento=1;
-    }
-
-    if (key == 'p' || key == 'P') {
-        movimento=0;
-    }
 
     else if(key == '+'){
         dZ -= 1.0f;
@@ -149,7 +137,6 @@ int main(int argc, char** argv){
     glutDisplayFunc(display);
     glutReshapeFunc(reshape); 
     glutKeyboardFunc(keyboard);
-     glutTimerFunc(0, timer, 0); 
     glutMainLoop();
     return 0;
 }
